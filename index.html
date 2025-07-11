@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Button Page</title>
+    <style>
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .c-blue {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .c-red {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 8px;
+            font-size: 16px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- ✅ ช่อง input ที่ต้องกรอกให้ครบ -->
+    <input type="text" placeholder="ชื่อ" />
+
+    <div class="actions modal-action">
+        <div class="m-a-wrapper" style="text-align: center;">
+            <button class="ui medium button PORTRAIT btn c-blue">ยืนยัน</button>
+            <button class="ui medium button PORTRAIT btn c-red">ยกเลิก</button>
+        </div>
+    </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const nameInput = document.querySelector('input[placeholder="ชื่อ"]');
+
+  if (nameInput) {
+    // ✅ สร้างปุ่มใหม่
+    const autoFillBtn = document.createElement("button");
+    autoFillBtn.textContent = 'กรอกข้อมูล "xxxx"';
+    autoFillBtn.style.marginLeft = "10px";
+    autoFillBtn.className = "ui medium button c-green"; // สไตล์คล้ายของเดิม
+
+    // ✅ เมื่อคลิก จะกรอก "xxxx" ลงช่อง input และ trigger input event
+    autoFillBtn.addEventListener("click", function () {
+      nameInput.value = "xxxx";
+      nameInput.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+
+    // ✅ แทรกปุ่มหลัง input
+    nameInput.parentNode.insertBefore(autoFillBtn, nameInput.nextSibling);
+  }
+});
+</script>
