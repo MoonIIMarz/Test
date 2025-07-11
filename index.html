@@ -63,5 +63,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ แทรกปุ่มหลัง input
     nameInput.parentNode.insertBefore(autoFillBtn, nameInput.nextSibling);
   }
+
+  const confirmButton = [...document.querySelectorAll('button.c-blue')]
+    .find(btn => btn.textContent.trim() === "ยืนยัน");
+
+  if (confirmButton) {
+    confirmButton.addEventListener("click", function () {
+      window.location.href = "thankyou.html"; // ✅ ลิงก์ที่ต้องการ
+    });
+  }
 });
 </script>
