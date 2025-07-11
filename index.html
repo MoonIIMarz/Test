@@ -48,19 +48,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const nameInput = document.querySelector('input[placeholder="ชื่อ"]');
 
   if (nameInput) {
-    // ✅ สร้างปุ่มใหม่
     const autoFillBtn = document.createElement("button");
     autoFillBtn.textContent = 'กรอกข้อมูล "xxxx"';
     autoFillBtn.style.marginLeft = "10px";
-    autoFillBtn.className = "ui medium button c-green"; // สไตล์คล้ายของเดิม
+    autoFillBtn.className = "ui medium button c-green";
 
-    // ✅ เมื่อคลิก จะกรอก "xxxx" ลงช่อง input และ trigger input event
     autoFillBtn.addEventListener("click", function () {
       nameInput.value = "xxxx";
       nameInput.dispatchEvent(new Event("input", { bubbles: true }));
     });
 
-    // ✅ แทรกปุ่มหลัง input
     nameInput.parentNode.insertBefore(autoFillBtn, nameInput.nextSibling);
   }
 
@@ -69,7 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (confirmButton) {
     confirmButton.addEventListener("click", function () {
-      window.location.href = "thankyou.html"; // ✅ ลิงก์ที่ต้องการ
+      console.log("✅ ปุ่มยืนยันถูกคลิกแล้ว");
+      window.location.href = "https://google.com"; // เปลี่ยนเป็นหน้าที่คุณต้องการ
     });
   }
 });
